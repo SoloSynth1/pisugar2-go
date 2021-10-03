@@ -8,7 +8,7 @@ A minimalistic, daemon-free CLI utility to manage your PiSugar2s &amp; PiSugar2 
 While I admire all the hard works the amazing folks at PiSugar has put up to shell out a fully-featured, fully-fledged power manager,
 sometimes however, a simple CLI utility script is all you need...
 
-- Works on `ArchArm` - `dpkg`/`rpm` not required
+- `dpkg`/`rpm` not required - works on `ArchArm` and other distros
 - Daemon-free - Drains power only when you run the commands
 - Get/Set values from CLI and CLI only - no more unrestricted access via webpage
 
@@ -19,6 +19,8 @@ cd pisugar2-go
 go build .
 ./pisugar2-go
 ```
+
+Might release built binaries as the project leaves the infant stage.
 
 ## TODOs
 - [ ] Model PiSugar2 (IP5209)
