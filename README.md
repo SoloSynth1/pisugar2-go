@@ -14,7 +14,7 @@ sometimes however, a simple CLI utility script is all you need...
 
 ## Installation
 
-Firstly, please ensure I2C interface is enabled. (i.e. /dev/isc-x is present)
+Firstly, please ensure I2C interface is enabled. (i.e. `/dev/isc-x` is present)
 
 Then, git clone the repo and build the binary from source:
 ```bash
