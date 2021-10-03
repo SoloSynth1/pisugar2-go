@@ -13,6 +13,10 @@ sometimes however, a simple CLI utility script is all you need...
 - Get/Set values from CLI and CLI only - no more unrestricted access via webpage
 
 ## Installation
+
+Firstly, please ensure I2C interface is enabled. (i.e. /dev/isc-x is present)
+
+Then, git clone the repo and build the binary from source:
 ```bash
 git clone https://github.com/SoloSynth1/pisugar2-go.git
 cd pisugar2-go
@@ -20,7 +24,7 @@ go build .
 ./pisugar2-go
 ```
 
-Might release built binaries as the project leaves the infant stage.
+I might release built binaries as the project leaves infant stage.
 
 ## TODOs
 - [ ] Model PiSugar2 (IP5209)
