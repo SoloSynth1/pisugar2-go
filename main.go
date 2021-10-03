@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
 	i2c "github.com/d2r2/go-i2c"
+	"log"
 )
 
 func check(err error) {
@@ -13,16 +13,16 @@ func check(err error) {
 }
 
 type Battery struct {
-	high	uint8
-	low	uint8
+	high uint8
+	low  uint8
 }
 
 type BatteryCurvePoint struct {
-	voltage	float32
-	level	float32
+	voltage float32
+	level   float32
 }
 
-func getBatteryCurve() ([]BatteryCurvePoint) {
+func getBatteryCurve() []BatteryCurvePoint {
 	return []BatteryCurvePoint{
 		{4.10, 100.0},
 		{4.05, 95.0},
@@ -39,23 +39,22 @@ func getBatteryCurve() ([]BatteryCurvePoint) {
 
 var batteryCurve = getBatteryCurve()
 
-func (b *Battery) voltage() (float32) {
+func (b *Battery) GetVoltage() float32 {
 	var v float32
-	if b.high & 0x20 != 0 {
+	if b.high&0x20 != 0 {
 		b.low = ^b.low & 0xff
 		b.high = ^b.high & 0x1f
-		v = (float32(uint16(b.high | 0b1100_0000) << 8) + float32(b.low))
-		v = (2600.0 - v * 0.26855) / 1000.
+		v = float32(uint16(b.high|0b1100_0000)<<8) + float32(b.low)
+		v = (2600.0 - v*0.26855) / 1000.
 	} else {
-		v = (float32(uint16(b.high & 0x1f) << 8) + float32(b.low))
-		v = (2600.0 + v * 0.26855) / 1000.
+		v = float32(uint16(b.high&0x1f)<<8) + float32(b.low)
+		v = (2600.0 + v*0.26855) / 1000.
 	}
 	return v
 }
 
-func (b *Battery) Percentage() (float32) {
-	v := b.voltage()
-	fmt.Printf("voltage is: %v V\n", v)
+func (b *Battery) GetPercentage() float32 {
+	v := b.GetVoltage()
 	for i, point := range batteryCurve {
 		if v >= point.voltage {
 			if i == 0 {
@@ -64,7 +63,7 @@ func (b *Battery) Percentage() (float32) {
 				vHigh := batteryCurve[i-1].voltage
 				lHigh := batteryCurve[i-1].level
 				percent := (v - point.voltage) / (vHigh - point.voltage)
-				return point.level + percent * (lHigh - point.level)
+				return point.level + percent*(lHigh-point.level)
 			}
 		}
 	}
@@ -81,5 +80,6 @@ func main() {
 	low, err := i2c.ReadRegU8(0xd0)
 	check(err)
 	b := Battery{high, low}
-	fmt.Printf("%v\n", b.Percentage())
+	fmt.Printf("voltage is: %v V\n", b.GetVoltage())
+	fmt.Printf("Percentage: %v %\n", b.GetPercentage())
 }
