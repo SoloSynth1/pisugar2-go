@@ -1,4 +1,7 @@
 # pisugar2-go
+![LICENSE](https://img.shields.io/github/license/SoloSynth1/pisugar2-go?style=for-the-badge)
+![Last commited](https://img.shields.io/github/last-commit/SoloSynth1/pisugar2-go?style=for-the-badge)
+
 A minimalistic, daemon-free CLI utility to manage your PiSugar2s &amp; PiSugar2 Pros.
 
 ⚠️ work in progress ⚠️
@@ -44,6 +47,8 @@ I might release built binaries as the project leaves infant stage.
 - [ ] RTC module (SD3078)
   - [ ] Read time
   - [ ] Write time
+- [ ] Test case coverage
+- [ ] Workflows
 
 ## Checkout these awesome repos also
 - [pisugar-power-manager-rs](https://github.com/PiSugar/pisugar-power-manager-rs)
