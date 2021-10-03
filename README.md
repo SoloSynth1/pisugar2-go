@@ -28,17 +28,17 @@ I might release built binaries as the project leaves infant stage.
 
 ## TODOs
 - [ ] Model PiSugar2 (IP5209)
-  - [ ] Read voltage
-    - [ ] Display Voltage
-    - [ ] Display Battery Percentage
-    - [ ] Display Ampere
+  - [ ] Read battery status
+    - [ ] Display voltage
+    - [ ] Display battery percentage
+    - [ ] Display ampere
   - [ ] Read charging status
   - [ ] Charging control
 - [ ] Model PiSugar2 Pro (IP5312)
-  - [ ] Read voltage
-    - [x] Display Voltage
-    - [x] Display Battery Percentage
-    - [ ] Display Ampere
+  - [ ] Read battery status
+    - [x] Display voltage
+    - [x] Display battery percentage
+    - [ ] Display ampere
   - [ ] Read charging status
   - [ ] Charging control
 - [ ] RTC module (SD3078)
