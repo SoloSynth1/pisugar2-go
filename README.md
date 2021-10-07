@@ -54,3 +54,4 @@ I might release built binaries as the project leaves infant stage.
 - [pisugar-power-manager-rs](https://github.com/PiSugar/pisugar-power-manager-rs)
 - [pwnagotchi-plugin-pisugar2](https://github.com/kellertk/pwnagotchi-plugin-pisugar2)
 - [go-i2c](https://github.com/d2r2/go-i2c)
+
