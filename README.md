@@ -11,7 +11,7 @@ A minimalistic, daemon-free CLI utility to manage your PiSugar2s &amp; PiSugar2 
 While I admire all the hard works the amazing folks at PiSugar has put up to shell out a fully-featured, fully-fledged power manager,
 sometimes however, a simple CLI utility script is all you need...
 
-- `dpkg`/`rpm` not required - works on `ArchArm` and (probably) other distros
+- `dpkg`/`rpm` not required - works on `ArchArm` and (probably) other distros, as long as your I2C interface is enabled.
 - Daemon-free - Drains power only when you run the commands
 - Get/Set values from CLI and CLI only - no more unrestricted access via webpage
 
